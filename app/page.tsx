@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Enso } from "@/components/enso";
 import { Reveal } from "@/components/reveal";
+import { ResumeBanner } from "@/components/progress";
 import { tracks, trackMeta, lessonsByTrack } from "@/lib/lessons";
 import { patterns } from "@/lib/patterns";
 
@@ -69,6 +70,8 @@ export default function Home() {
                 </span>
               </div>
             </Reveal>
+
+            <ResumeBanner />
           </div>
 
           <div className="relative mx-auto hidden aspect-square w-full max-w-md items-center justify-center md:flex">

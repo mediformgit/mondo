@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { useCallback, useEffect, useState } from "react";
 import { lessons, lessonsByTrack, type Track } from "@/lib/lessons";
 
@@ -152,7 +153,11 @@ export function LessonCompleteButton({ slug }: { slug: string }) {
   const isDone = mounted && done.has(slug);
   return (
     <button
-      onClick={() => toggle(slug)}
+      onClick={() => {
+        // privacy-safe analytics: lesson slug only, no personal data
+        if (!isDone) track("lesson_complete", { slug });
+        toggle(slug);
+      }}
       aria-pressed={isDone}
       className={`flex w-full items-center justify-center gap-2.5 rounded-xl border px-5 py-4 font-display text-lg transition-colors ${
         isDone
@@ -169,5 +174,39 @@ export function LessonCompleteButton({ slug }: { slug: string }) {
       </span>
       {isDone ? "修了済み（クリックで取り消し）" : "この講を修了にする"}
     </button>
+  );
+}
+
+/**
+ * Home-page resume CTA. Renders only when the visitor has started but not
+ * finished — first-time visitors and finishers see nothing (no clutter).
+ */
+export function ResumeBanner() {
+  const { done, mounted } = useProgress();
+  if (!mounted) return null;
+  const count = ordered.filter((l) => done.has(l.slug)).length;
+  const next = ordered.find((l) => !done.has(l.slug));
+  if (count === 0 || !next) return null;
+
+  return (
+    <Link
+      href={`/learn/${next.slug}`}
+      className="group mt-8 flex items-center justify-between gap-4 rounded-2xl border border-shu/30 bg-shu/[0.07] px-5 py-4 transition-colors hover:border-shu/50 hover:bg-shu/10"
+    >
+      <span className="flex items-center gap-4">
+        <span className="seal h-10 w-10 shrink-0 text-base">続</span>
+        <span className="min-w-0">
+          <span className="block font-mono text-[10px] tracking-[0.25em] text-shu">
+            学びの続き · {count}/{ordered.length} 修了
+          </span>
+          <span className="block truncate font-display text-paper">
+            第{next.num}講「{next.title}」
+          </span>
+        </span>
+      </span>
+      <span className="shrink-0 font-display text-paper transition-transform group-hover:translate-x-1">
+        続きから →
+      </span>
+    </Link>
   );
 }

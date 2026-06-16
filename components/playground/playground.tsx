@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { track } from "@vercel/analytics";
 import { presets, getPreset } from "@/lib/presets";
 
 type Role = "user" | "assistant";
@@ -152,6 +153,9 @@ export function Playground() {
     setTurns([...history, { role: "assistant", content: "", thinking: "" }]);
     setDraft("");
     setBusy(true);
+
+    // privacy-safe analytics: only the mode/model, never the prompt content
+    track("playground_send", { mode, model: mode === "live" ? model : "demo" });
 
     const ctrl = new AbortController();
     abortRef.current = ctrl;
