@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  問道 MONDŌ — design system
+  墨 (sumi ink) ground · 和紙 (washi) light · 朱 (vermilion) accent · 金 (gold) whisper
+*/
+
+:root {
+  /* ground — sumi ink, warm near-black */
+  --ink-900: #0b0a0d;
+  --ink-850: #0f0e12;
+  --ink-800: #141318;
+  --ink-700: #1c1b22;
+  --ink-600: #26242d;
+  --ink-500: #322f3a;
+
+  /* light — washi paper, warm off-white */
+  --paper: #ece7dd;
+  --paper-dim: #c6c1b8;
+  --paper-mute: #8d877d;
+  --paper-faint: #5f5a53;
+
+  /* 朱 vermilion — the seal, the torii, the answer */
+  --shu: #e0533a;
+  --shu-bright: #ff6f4d;
+  --shu-deep: #b63b27;
+
+  /* 金 gold — restraint, used as a whisper */
+  --kin: #c9a35a;
+
+  --ai: #6ea2c9; /* 藍 indigo, for "thinking" / cool info */
+
+  --line: rgba(236, 231, 221, 0.10);
+  --line-strong: rgba(236, 231, 221, 0.18);
+
+  --background: var(--ink-900);
+  --foreground: var(--paper);
+
+  --font-display: var(--font-mincho), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-gothic), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --maxw: 1180px;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* layered ambient ground: ink gradient + faint grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(900px 600px at 78% -8%, rgba(224, 83, 58, 0.10), transparent 60%),
+    radial-gradient(1100px 800px at 8% 110%, rgba(110, 162, 201, 0.06), transparent 55%),
+    linear-gradient(180deg, var(--ink-900), var(--ink-850) 60%, var(--ink-900));
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--shu);
+  color: var(--ink-900);
+}
+
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--ink-850); }
+::-webkit-scrollbar-thumb { background: var(--ink-600); border-radius: 99px; border: 3px solid var(--ink-850); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-500); }
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.14;
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding-inline: 2.5rem; }
+  }
+
+  /* the seal / hanko mark */
+  .seal {
+    font-family: var(--font-display);
+    display: inline-grid;
+    place-items: center;
+    color: var(--paper);
+    background: var(--shu);
+    border-radius: 7px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 2px 18px -6px rgba(224, 83, 58, 0.7);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--shu);
+  }
+
+  .vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-display);
+    letter-spacing: 0.22em;
+  }
+
+  /* link underline that grows */
+  .ulink {
+    background-image: linear-gradient(var(--shu), var(--shu));
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .ulink:hover { background-size: 100% 1.5px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.94rem;
+    letter-spacing: 0.02em;
+    transition: transform 0.25s cubic-bezier(0.2,0.7,0.2,1), background-color 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s;
+    will-change: transform;
+  }
+  .btn-primary {
+    background: var(--shu);
+    color: #1a0d0a;
+    box-shadow: 0 10px 40px -14px rgba(224, 83, 58, 0.8);
+  }
+  .btn-primary:hover { background: var(--shu-bright); transform: translateY(-2px); }
+  .btn-ghost {
+    border: 1px solid var(--line-strong);
+    color: var(--paper);
+  }
+  .btn-ghost:hover { border-color: var(--shu); color: var(--paper); transform: translateY(-2px); }
+
+  .card {
+    position: relative;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0));
+    border-radius: 16px;
+    transition: border-color 0.4s, transform 0.4s cubic-bezier(0.2,0.7,0.2,1), background-color 0.4s;
+  }
+  .card:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-4px);
+  }
+
+  .prose-mondo { color: var(--paper-dim); }
+  .prose-mondo p { margin-bottom: 1.15rem; line-height: 1.95; }
+  .prose-mondo strong { color: var(--paper); font-weight: 600; }
+  .prose-mondo a { color: var(--shu); }
+  .prose-mondo h2 { color: var(--paper); font-size: 1.6rem; margin: 2.6rem 0 1rem; }
+  .prose-mondo h3 { color: var(--paper); font-size: 1.2rem; margin: 2rem 0 0.8rem; }
+  .prose-mondo ul { margin: 0 0 1.2rem; padding-left: 0; list-style: none; }
+  .prose-mondo li { position: relative; padding-left: 1.5rem; margin-bottom: 0.6rem; line-height: 1.8; }
+  .prose-mondo li::before {
+    content: "—"; position: absolute; left: 0; color: var(--shu);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .grain-card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)); }
+  .ring-shu:focus-visible { outline: 2px solid var(--shu); outline-offset: 2px; }
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
