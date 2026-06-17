@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: セキュリティの脆弱性
+    url: https://github.com/security/advisories
+    about: 鍵・CSP・なりすまし等は公開Issueにせず、SECURITY.md の手順で非公開報告を。
+  - name: 綱領（PRINCIPLES）を読む
+    url: https://github.com/
+    about: 提案の前に、このプロジェクトの不可侵の原則を確認してください。

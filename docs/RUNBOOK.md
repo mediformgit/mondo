@@ -107,6 +107,45 @@ git push -u origin edit/lesson-add   # 3) push
 
 ---
 
+# C. オープンソースとして運用する（公開する場合）
+
+> 思想（[PRINCIPLES.md](../PRINCIPLES.md)）と一貫し、横展開・継続性・信頼の面で価値が大きい。
+> ただし「なりすまし」と「メンテナ負荷」の2点を設計でガードする前提。
+
+### C-1. 公開前チェック
+- [ ] リポジトリに**秘密が含まれていない**こと（BYOK設計なので本来ゼロ。`.env*.local` は `.gitignore` 済み）。
+- [ ] ライセンスが揃っている：[LICENSE](../LICENSE)（MIT）／[LICENSE-CONTENT.md](../LICENSE-CONTENT.md)（CC BY-SA 4.0）／[BRAND.md](../BRAND.md)（ブランド留保）。**配置済み**。
+
+### C-2. なりすまし対策（BYOKの要）
+- [ ] **公式ドメインを明示**：READMEは対応済み。道場の「鍵の扱い」モーダルにも公式URLを1行入れると万全
+  （`components/playground/playground.tsx` の `KeyInfoModal`。`NEXT_PUBLIC_SITE_URL` を表示する形が簡単）。
+- [ ] [BRAND.md](../BRAND.md) の通り、フォークは別名・別ロゴで、という方針を README/About で周知。
+
+### C-3. GitHub の設定
+- [ ] **Settings → Branches → Branch protection（`main`）**：
+  - 「Require a pull request before merging」をON（本番直編集を禁止）。
+  - 「Require status checks（CI）to pass」をON（[ci.yml](../.github/workflows/ci.yml) を必須に）。
+- [ ] Issue テンプレート（[.github/ISSUE_TEMPLATE](../.github/ISSUE_TEMPLATE)）・PRテンプレートは配置済み。
+- [ ] **Security → Private vulnerability reporting** をON（[SECURITY.md](../SECURITY.md)）。
+- [ ] （任意）Discussions をON、`good first issue` ラベルで初参加を歓迎。
+
+### C-4. ⭐ 思想を抜け落ちさせない仕組み（最重要）
+サイトが大きくなるほど芯は薄れる。次の多層で防ぐ：
+
+1. **[PRINCIPLES.md](../PRINCIPLES.md) が最上位文書。** すべての判断はここから。リポジトリの中心に置き続ける。
+2. **[CLAUDE.md](../CLAUDE.md) で将来のAIセッションが自動継承。** 別のセッションで作業しても、まず綱領と技術的不変条件（CSP/BYOK等）を読む構造。
+3. **PRテンプレの「思想チェック」**（[PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md)）で、**毎回の変更が綱領 §IV を通過**する。
+4. **四半期レビュー（B-3）に綱領点検を追加**：実装が PRINCIPLES.md から逸れていないか、不可侵の原則 7 項目を1つずつ照合。
+5. **新しい貢献者・AIには、まず PRINCIPLES.md を案内**してから着手してもらう。
+
+> 運営者として迷ったときの最終判断基準も PRINCIPLES.md。便利さは原則の上位に来ない。
+
+### C-5. メンテナ負荷を抑える
+- **キュレーション型**：PR歓迎・採否は運営者。質を保てないPRは丁寧に見送る（[CONTRIBUTING.md](../CONTRIBUTING.md) に明記済み）。
+- テンプレートで提案の質を底上げ。無理なら一旦クローズしてよい。OSS＝無制限の対応義務ではない。
+
+---
+
 ## 困ったとき
 - ビルドが失敗：PRの GitHub Actions ログ、または Vercel の Deploy ログを確認。
 - 解析にデータが出ない：Analytics を Enable したか、ブラウザのコンソールにエラーが出ていないか。
