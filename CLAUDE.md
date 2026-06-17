@@ -49,6 +49,6 @@
 - 変更後は **`npm run build` を通してから**「完了」と言うこと。型・lintのエラーを残さない。
 - 新規ファイルや大きな変更は、PRINCIPLES.md §IV のチェックリストを満たすことを確認する。
 - 詳しい運用は [docs/RUNBOOK.md](./docs/RUNBOOK.md)、貢献の作法は [CONTRIBUTING.md](./CONTRIBUTING.md)。
-- **コンテンツ制作**：講義のネタ出しは `/propose-themes`（→ [docs/THEME-BACKLOG.md](./docs/THEME-BACKLOG.md)）、本文化は `/create-lesson`（[.claude/skills/](./.claude/skills/)）。両者は必ず [docs/QUALITY-RUBRIC.md](./docs/QUALITY-RUBRIC.md)（陳腐化ガードレール）に従う。検証不能な事実は出さず保留。
+- **コンテンツ制作スキル**（[.claude/skills/](./.claude/skills/)）：講義のネタ出し `/propose-themes`（→ [docs/THEME-BACKLOG.md](./docs/THEME-BACKLOG.md)）／講義本文 `/create-lesson`／型 `/create-pattern`／道場プリセット `/create-preset`／既存講義の鑑定・改善 `/improve-lesson`。**すべて [docs/QUALITY-RUBRIC.md](./docs/QUALITY-RUBRIC.md)（§0〜§5の核＋§6型・§7プリセット・§8改善の追補）に従う。** 検証不能な事実は出さず保留。改善は欠陥を直すが**均一化しない**。
 
 > サイトが大きくなるほど、芯は薄れやすい。新しいセッションのたびに、PRINCIPLES.md から始めること。
