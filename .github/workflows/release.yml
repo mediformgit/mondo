@@ -1,0 +1,37 @@
+name: Release
+
+# リリース時に、merge された PR から変更履歴（GitHub Release ノート）を自動生成する。
+# カテゴリ分けは .github/release.yml に従う。タグを push するか、手動実行で起動。
+# ファイル版の CHANGELOG.md はローカルの `npm run changelog` で別途生成（README/RUNBOOK 参照）。
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "リリースするタグ（例: v0.1.0）。先に push 済みであること。"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Resolve tag
+        id: t
+        run: echo "tag=${{ github.event.inputs.tag || github.ref_name }}" >> "$GITHUB_OUTPUT"
+      - name: Create / refresh GitHub Release with auto-generated notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.t.outputs.tag }}"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG は既存。スキップ（手動で編集してください）。"
+          else
+            gh release create "$TAG" --title "$TAG" --generate-notes
+          fi

@@ -1,0 +1,14 @@
+# GitHub の「自動生成リリースノート」のカテゴリ分け（merge された PR のラベルで分類）。
+# release.yml ワークフローの `gh release create --generate-notes` が参照する。
+changelog:
+  categories:
+    - title: 追加
+      labels: ["feat", "enhancement", "content"]
+    - title: 修正
+      labels: ["fix", "bug"]
+    - title: ドキュメント
+      labels: ["docs"]
+    - title: 保守・依存
+      labels: ["chore", "ci", "dependencies"]
+    - title: その他
+      labels: ["*"]

@@ -75,6 +75,17 @@ git push -u origin edit/lesson-add   # 3) push
 
 > 講義を1件足すと、ページ・前後ナビ・進捗カウント・`sitemap.xml` は自動で更新されます。
 
+### 自動ガード（公開前に整備済み）
+PR・週次・リリースで自動的に守られます。手元でも同じコマンドで確認できます。
+| いつ | 何を | 手元での実行 |
+|---|---|---|
+| 毎PR（CI） | ビルド＋lint＋**内部リンク整合**＋**セキュリティ不変条件** | `npm run check` ／ `npm run check:security` |
+| 週次（health.yml） | ビルド健全性＋**外部リンク切れ** | `npm run check:external` |
+| リリース時（release.yml） | merge済みPRから**変更履歴**を自動生成（GitHub Release） | `npm run changelog`（CHANGELOG.md を再生成） |
+
+- **セキュリティ不変条件**＝CSPの `connect-src` がAnthropicのみ・ヘッダ揃い・鍵は playground 限定・外部送信なし（BYOKの生命線）。これに違反するPRはCIで落ちます。
+- 依存・脆弱性の検知は Dependabot、対応は `/fix-deps`（B-3）。
+
 ## B-2. アクセス解析の見方（改善の判断材料）
 - Vercel → **Analytics**：人気ページ＝伸ばすべき場所。
 - **Custom Events**（実装済み・個人情報なし）：

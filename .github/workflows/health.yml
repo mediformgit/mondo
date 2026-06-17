@@ -1,0 +1,25 @@
+name: Health (weekly)
+
+# 週次の健全性チェック：ビルドが通るか、外部リンクが切れていないか。
+# PR が無い週でも main の健康を確認し、外部リンクの経年劣化を検知する。
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 毎週月曜 00:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build health
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+      - name: Internal + external link check
+        run: npm run check:external
