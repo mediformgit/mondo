@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # アプリ本体の依存（npm）
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels: ["dependencies"]
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      # マイナー/パッチはまとめて1本のPRに（ノイズ削減）。
+      # メジャー（破壊的変更の可能性）は個別PRにして、単独でレビューできるようにする。
+      minor-and-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  # GitHub Actions 自体のバージョン更新
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels: ["dependencies"]
+    commit-message:
+      prefix: "chore(ci)"
