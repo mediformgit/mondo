@@ -577,11 +577,11 @@ function KeyInfoModal({ onClose }: { onClose: () => void }) {
       aria-modal="true"
       aria-label="鍵の扱いと安全性"
       onClick={onClose}
-      className="fixed inset-0 z-[60] grid place-items-center bg-ink-900/80 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] grid place-items-center bg-[rgba(11,10,13,0.72)] p-4 backdrop-blur-md"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="card grain-card max-h-[85vh] w-full max-w-lg overflow-y-auto p-7"
+        className="relative rounded-2xl border border-line bg-[#141318] shadow-2xl max-h-[85vh] w-full max-w-lg overflow-y-auto p-7"
       >
         <div className="mb-5 flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -602,7 +602,7 @@ function KeyInfoModal({ onClose }: { onClose: () => void }) {
           <strong className="text-paper">ブラウザが強制する仕組み</strong>でお見せします。
         </p>
 
-        <div className="mb-5 rounded-lg border border-shu/40 bg-shu/10 px-4 py-3">
+        <div className="mb-5 rounded-lg border border-[rgba(224,83,58,0.45)] bg-[rgba(224,83,58,0.12)] px-4 py-3">
           <div className="font-mono text-[10px] tracking-[0.2em] text-shu">公式サイト</div>
           <p className="mt-1 text-sm leading-relaxed text-paper-dim">
             APIキーを入力してよいのは <strong className="break-all text-paper">{officialHost()}</strong> だけです。
@@ -625,7 +625,7 @@ function KeyInfoModal({ onClose }: { onClose: () => void }) {
               </span>
               <span>
                 <strong className="text-paper">{h}</strong>
-                <span className="text-paper-mute"> — {b}</span>
+                <span className="text-paper-dim"> — {b}</span>
               </span>
             </li>
           ))}
