@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b0a0d"/>
+      <stop offset="100%" stop-color="#100e13"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="2%" r="68%">
+      <stop offset="0%" stop-color="#e0533a" stop-opacity="0.24"/>
+      <stop offset="55%" stop-color="#e0533a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#ece7dd" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- 落款（seal） -->
+  <rect x="90" y="86" width="116" height="116" rx="18" fill="#e0533a"/>
+  <text x="148" y="162" font-family="Yu Mincho, YuMincho, 'MS Mincho', 'Hiragino Mincho ProN', serif" font-size="76" font-weight="700" fill="#140a07" text-anchor="middle">問</text>
+
+  <!-- ワードマーク -->
+  <text x="232" y="150" font-family="Yu Mincho, YuMincho, 'MS Mincho', serif" font-size="60" font-weight="700" fill="#ece7dd">問道</text>
+  <text x="234" y="190" font-family="'Yu Gothic', 'Segoe UI', sans-serif" font-size="22" letter-spacing="9" fill="#8d877d">MONDŌ</text>
+
+  <!-- タグライン -->
+  <text x="84" y="408" font-family="Yu Mincho, YuMincho, 'MS Mincho', serif" font-size="142" font-weight="700" fill="#ece7dd">問いを、<tspan fill="#ff6f4d">力に。</tspan></text>
+  <rect x="92" y="442" width="250" height="6" rx="3" fill="#e0533a" opacity="0.55"/>
+
+  <!-- サブライン -->
+  <text x="92" y="524" font-family="'Yu Gothic', 'Segoe UI', sans-serif" font-size="34" fill="#c6c1b8">生成AIの使いこなしを、誰にでも。完全無料の教育。</text>
+  <text x="92" y="572" font-family="'Yu Gothic', 'Segoe UI', sans-serif" font-size="23" letter-spacing="1" fill="#8d877d">Claudeを題材に、文系も理系も。 — Turn questions into power.</text>
+</svg>
