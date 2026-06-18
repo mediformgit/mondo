@@ -4,6 +4,15 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { track } from "@vercel/analytics";
 import { presets, getPreset } from "@/lib/presets";
+import { site } from "@/lib/site";
+
+function officialHost() {
+  try {
+    return new URL(site.url).host;
+  } catch {
+    return site.url;
+  }
+}
 
 type Role = "user" | "assistant";
 type Turn = { role: Role; content: string; thinking?: string };
@@ -587,11 +596,19 @@ function KeyInfoModal({ onClose }: { onClose: () => void }) {
           </button>
         </div>
 
-        <p className="mb-5 text-sm leading-relaxed text-paper-dim">
+        <p className="mb-4 text-sm leading-relaxed text-paper-dim">
           疑うのは正しい姿勢です。だから「信じてください」ではなく、
           <strong className="text-paper">確かめられる事実</strong>と
           <strong className="text-paper">ブラウザが強制する仕組み</strong>でお見せします。
         </p>
+
+        <div className="mb-5 rounded-lg border border-shu/40 bg-shu/10 px-4 py-3">
+          <div className="font-mono text-[10px] tracking-[0.2em] text-shu">公式サイト</div>
+          <p className="mt-1 text-sm leading-relaxed text-paper-dim">
+            APIキーを入力してよいのは <strong className="break-all text-paper">{officialHost()}</strong> だけです。
+            見た目が似ていても、これ以外のURLでは入力しないでください（なりすまし対策）。
+          </p>
+        </div>
 
         <ul className="space-y-3 text-sm">
           {[

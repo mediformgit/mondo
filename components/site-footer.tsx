@@ -46,7 +46,12 @@ export function SiteFooter() {
 
       <div className="wrap flex flex-col items-start justify-between gap-3 border-t border-line py-6 text-xs text-paper-faint md:flex-row md:items-center">
         <p>© {new Date().getFullYear()} 問道 MONDŌ — 知は、独占されてはならない。</p>
-        <p className="font-mono">made with 問 · for everyone</p>
+        <div className="flex items-center gap-4">
+          <Link href="/privacy" className="hover:text-paper-mute">
+            プライバシーと免責
+          </Link>
+          <span className="font-mono">made with 問 · for everyone</span>
+        </div>
       </div>
     </footer>
   );
