@@ -36,7 +36,8 @@
 - 採点メモ（陳腐テスト8基準）: 既出性○（"反論させる"記事は多いが"押し返しが正答を壊す"は稀）/ 非自明○ / 独自フレーム○（誘導尋問＝悪い問い）/ 転移性○（原理＝報酬設計の副作用）/ 鮮度○ / 文理○（題材中立）/ 声○ / 非自己反復△→要差別化（講義8＝能動的に批判を依頼、本講＝不随意の同意バイアスと中立化）。**最近接＝講義8 thinking-partner。リスク：講義8と混線→「あなたが選ぶ言葉が、真実か追従かを決める」の一点に絞る。**
 - 出典（§4）: Anthropic [Towards Understanding Sycophancy in LMs](https://arxiv.org/pdf/2310.13548) ／ OpenAI [Sycophancy in GPT-4o](https://openai.com/index/sycophancy-in-gpt-4o/) ／ Science [Sycophantic AI decreases prosocial intentions](https://www.science.org/doi/10.1126/science.aec8352)
 
-### [提案中] AIに「渡さない」という判断（過信・認知の外注）
+### [起草済] AIに「渡さない」という判断（過信・認知の外注）
+- 起草: 講義11 `what-not-to-delegate`「AIに渡さないもの」＋道場プリセット `what-to-keep`（ブランチ `lesson/what-not-to-delegate`、`lesson/sycophancy` にスタック）。§0検証: Gerlich 2025（Societies 15:6）＋ Lee et al. CHI 2025（Microsoft/CMU, confidence effect）。相関・自己申告として本文化、固有数値は不掲載。
 - 角度（一行の主張）: AIに何を任せるかより、**何を任せないか**が熟達を分ける。雑用は外注し、自分を変える思考は手放さない。
 - トラック / レベル: 探究 /（上級・トラックの締め＝capstone候補）
 - なぜ新規・非自明か: 「AIに頼りすぎると考える力が落ちる」という嘆きの記事は多いが、ほとんどが警鐘で止まり**実用的な線引きを与えない**。本講の角度は"AI悪玉論"ではなく、**外注してよいトイルと、手放してはいけない思考を見分ける判断規則**。認知の外注（cognitive offloading）と批判的思考の負相関（特に若年層で顕著）という研究知見を、問道の使命（"書くことで考える機会を手放さない"＝講義5・PRINCIPLES）に接続する。
