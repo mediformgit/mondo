@@ -75,7 +75,7 @@ export function Playground() {
 
   const [system, setSystem] = useState("");
   const [draft, setDraft] = useState(
-    "AIに何でも聞いてみよう。または下の例から選んでください。"
+    "AIに何でも聞いてみよう。または「例から学ぶ」から選んでください。"
   );
   const [turns, setTurns] = useState<Turn[]>([]);
   const [busy, setBusy] = useState(false);
@@ -183,7 +183,7 @@ export function Playground() {
       const matched = preset && preset.user.trim() === text;
       const reply = matched
         ? preset!.demoReply
-        : "（デモモード）この例文への用意された回答だけを表示できます。自由に対話するには、上部で「自分の鍵」モードに切り替えてください。あなたのAPIキーはこのブラウザ内にのみ保存され、私たちのサーバーには一切送信されません。\n\n下の例をクリックすると、その回答を体験できます。";
+        : "（デモモード）この例文への用意された回答だけを表示できます。自由に対話するには、上部で「自分の鍵」モードに切り替えてください。あなたのAPIキーはこのブラウザ内にのみ保存され、私たちのサーバーには一切送信されません。\n\n「例から学ぶ」を選ぶと、その回答を体験できます。";
       streamText(
         reply,
         (s) => pushToken("content", s),
@@ -490,7 +490,7 @@ export function Playground() {
             <div className="flex h-full flex-col items-center justify-center text-center">
               <span className="seal mb-4 h-12 w-12 text-2xl">問</span>
               <p className="max-w-sm text-pretty text-sm leading-relaxed text-paper-mute">
-                ここは道場。左の例を選ぶか、下に問いを書いて送信してください。
+                ここは道場。「例から学ぶ」を選ぶか、問いを書いて送信してください。
                 {mode === "demo" && " デモモードでは、用意された例にAIが応答します。"}
               </p>
             </div>
