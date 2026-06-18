@@ -18,6 +18,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      - name: Security invariants (CSP / key confinement) — BYOK lifeline
+        run: npm run check:security
+      - name: Site integrity (internal links / ids / lesson ordering)
+        run: npm run check
       - run: npm run build
         env:
           NEXT_TELEMETRY_DISABLED: "1"
