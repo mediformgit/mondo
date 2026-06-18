@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return lessons.map((l) => ({ slug: l.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const l = getLesson(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const l = getLesson(slug);
   if (!l) return {};
   return {
     title: `${l.title} — ${l.track}${String(l.num).padStart(2, "0")}`,
@@ -102,8 +103,9 @@ function BlockView({ b }: { b: Block }) {
   }
 }
 
-export default function LessonPage({ params }: { params: { slug: string } }) {
-  const lesson = getLesson(params.slug);
+export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const lesson = getLesson(slug);
   if (!lesson) notFound();
 
   const idx = ordered.findIndex((l) => l.slug === lesson.slug);
