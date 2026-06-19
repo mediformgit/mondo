@@ -192,9 +192,70 @@ export const lessons: Lesson[] = [
   },
 
   {
+    slug: "scrub-before-sending",
+    track: "入門",
+    num: 4,
+    title: "渡す前に、消す",
+    subtitle: "守ることが、問いを研ぐ",
+    minutes: 8,
+    summary:
+      "AIに送る前に、他人の個人情報・秘密・固有名詞を、ひと手間かけて削る。そして気づく——具体を消して抽象化した問いのほうが、たいてい筋が良い。守りと質は、ここでは同じ方向を向いている。",
+    goals: [
+      "AIに送ってよいもの・控えるものを判断できる",
+      "個人情報や機微情報を“役割”に置き換えて匿名化できる",
+      "抽象化が、安全と同時に問いの質を上げると体感する",
+    ],
+    body: [
+      {
+        t: "p",
+        text:
+          "AIは便利だ。だが送った文章は、あなたの手の内を一度離れる。だから送信ボタンの前に、ひと呼吸おきたい——他人の名前、連絡先、社外秘、生々しい数字。それは、本当にAIに渡す必要があるだろうか。",
+      },
+      {
+        t: "callout",
+        tone: "insight",
+        title: "守りが、そのまま質になる",
+        text:
+          "個人情報や固有名詞を削るのは、まず「守り」のため。だが見落とされがちな第二の利得がある——具体を消して抽象化すると、相談の芯が際立ち、答えの質まで上がる。「田中部長が…」を「30代の上司が…」に変えると、AIは固有の事情ではなく“状況の本質”に集中できる。",
+      },
+      { t: "h", text: "固有名を、役割に置き換える" },
+      {
+        t: "p",
+        text:
+          "実名は役割へ（「取引先の担当者」）、社名は属性へ（「中堅メーカー」）、生の数字は範囲へ（「数百万円規模」）。固有の情報は、本質に必要な分だけ抽象に均す。これは、何が本当に必要で、何が単なる固有名かを切り分ける訓練そのものだ。",
+      },
+      {
+        t: "compare",
+        bad: "田中さん（営業部）が納期を守らず困っています。山田商事への120万円の案件で、先方の佐藤課長も…どう詰めるべき？",
+        good:
+          "取引先（中堅メーカー）の担当者が、数百万円規模の案件で納期遅延を繰り返しています。先方の上席も関わる状況です。関係を保ちつつ、改善を促す進め方を提案してください。",
+        note: "固有名を消しても、相談の本質は1ミリも損なわれない。むしろAIは“型”に集中でき、答えが締まる。",
+      },
+      {
+        t: "p",
+        text:
+          "問道の道場では、あなたの鍵もメッセージも、ブラウザから直接Anthropicへ送られ、当サイトのサーバーは一切経由しない（その仕組みは「鍵の扱い」で確かめられる）。それでも——どんな道具を使うときでも、機微な情報は「渡す前に消す」を習慣に。守りの作法は、道具が変わっても効く。",
+      },
+      { t: "try", label: "匿名化した相談の仕方を道場で試す", preset: "scrub-first" },
+      {
+        t: "callout",
+        tone: "warn",
+        title: "消しきれないものは、送らない",
+        text:
+          "完全な匿名化は難しい。断片の組み合わせで、誰のことか分かってしまうこともある。だから「本当に機微なものは、そもそも渡さない」も、立派な選択肢。守りの基本は、出す前に一度立ち止まることだ。",
+      },
+      {
+        t: "p",
+        text:
+          "渡す前に、消す。それは恐れではなく、作法だ。守るために削った具体が、かえってあなたの問いを鋭くする。安全と質は、ここでは敵同士ではない——同じ方向を向いている。",
+      },
+    ],
+  },
+
+  {
     slug: "six-patterns",
     track: "実践",
-    num: 4,
+    num: 5,
     title: "型を使う：6つの基本パターン",
     subtitle: "再現性は型から生まれる",
     minutes: 12,
@@ -240,7 +301,7 @@ export const lessons: Lesson[] = [
   {
     slug: "writing-and-editing",
     track: "実践",
-    num: 5,
+    num: 6,
     title: "文章を書く・直す",
     subtitle: "AIは下書きと鏡になる",
     minutes: 10,
@@ -289,7 +350,7 @@ export const lessons: Lesson[] = [
   {
     slug: "reasoning-and-data",
     track: "実践",
-    num: 6,
+    num: 7,
     title: "データと論理で考える",
     subtitle: "計算より、考え方の検算",
     minutes: 11,
@@ -339,7 +400,7 @@ export const lessons: Lesson[] = [
   {
     slug: "hallucination",
     track: "実践",
-    num: 7,
+    num: 8,
     title: "事実を確かめる：幻覚との付き合い方",
     subtitle: "賢く疑い、賢く使う",
     minutes: 9,
@@ -387,7 +448,7 @@ export const lessons: Lesson[] = [
   {
     slug: "question-the-question",
     track: "実践",
-    num: 8,
+    num: 9,
     title: "問いを、疑う",
     subtitle: "手段を聞く前に、目的に立ち返る",
     minutes: 9,
@@ -458,7 +519,7 @@ export const lessons: Lesson[] = [
   {
     slug: "knowledge-cutoff",
     track: "実践",
-    num: 9,
+    num: 10,
     title: "知識の地平線",
     subtitle: "AIには、知らない『今』がある",
     minutes: 9,
@@ -519,7 +580,7 @@ export const lessons: Lesson[] = [
   {
     slug: "ground-before-asking",
     track: "実践",
-    num: 10,
+    num: 11,
     title: "渡してから、問う",
     subtitle: "AIを“神託”にしない、下ごしらえの一手",
     minutes: 10,
@@ -580,7 +641,7 @@ export const lessons: Lesson[] = [
   {
     slug: "thinking-partner",
     track: "探究",
-    num: 11,
+    num: 12,
     title: "思考のパートナーにする",
     subtitle: "答えをもらうのをやめる",
     minutes: 11,
@@ -629,7 +690,7 @@ export const lessons: Lesson[] = [
   {
     slug: "learn-anything",
     track: "探究",
-    num: 12,
+    num: 13,
     title: "AIと学ぶ：自分専用の家庭教師",
     subtitle: "教育の独占が、終わる",
     minutes: 10,
@@ -679,7 +740,7 @@ export const lessons: Lesson[] = [
   {
     slug: "sycophancy",
     track: "探究",
-    num: 13,
+    num: 14,
     title: "AIは、なぜあなたに賛成するのか",
     subtitle: "迎合（へつらい）を見抜く",
     minutes: 10,
@@ -760,7 +821,7 @@ export const lessons: Lesson[] = [
   {
     slug: "what-not-to-delegate",
     track: "探究",
-    num: 14,
+    num: 15,
     title: "AIに渡さないもの",
     subtitle: "熟達は、手放さないもので決まる",
     minutes: 11,
@@ -832,7 +893,7 @@ export const lessons: Lesson[] = [
   {
     slug: "whose-normal",
     track: "探究",
-    num: 15,
+    num: 16,
     title: "AIの「普通」は、誰の普通か",
     subtitle: "既定の前提を、問い直す",
     minutes: 10,
@@ -900,7 +961,7 @@ export const lessons: Lesson[] = [
   {
     slug: "fluency-is-not-truth",
     track: "探究",
-    num: 16,
+    num: 17,
     title: "流暢さは、正しさではない",
     subtitle: "達者な語り口に、根拠を求める",
     minutes: 9,
