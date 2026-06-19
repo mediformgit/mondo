@@ -253,9 +253,78 @@ export const lessons: Lesson[] = [
   },
 
   {
+    slug: "search-vs-ask",
+    track: "入門",
+    num: 5,
+    title: "検索と、相談",
+    subtitle: "道具は、問いの性質で選ぶ",
+    minutes: 8,
+    summary:
+      "初心者は、検索の代わりに何でもAIに聞いてしまう。だが道具には向き不向きがある。事実の在りかを探すなら検索、考えを練る・整理するならAI。そして「どちらを使うか」を問うこと自体が、立派な「問いを立てる力」だ。",
+    goals: [
+      "「事実を探す問い」と「考えを練る問い」を見分けられる",
+      "最新・固有の事実をAIに丸投げしない判断を持てる",
+      "検索とAIを“往復”で使い分けられる",
+    ],
+    body: [
+      {
+        t: "p",
+        text:
+          "AIを使い始めて、多くの人が最初にやることがある——検索の代わりに、何でもAIに聞く。だが「いまの東京の人口は？」「最新の制度は？」とAIに丸投げすると、古い数字や、もっともらしい嘘が返ってくることがある。便利な道具ほど、向き不向きを知って使いたい。",
+      },
+      {
+        t: "callout",
+        tone: "insight",
+        title: "問いの“性質”で、道具を選ぶ",
+        text:
+          "検索は、すでにどこかにある情報の在りかを探して見せる。AIは、あなたの言葉から考えをその場で組み立てる。だから選ぶ基準は、道具の人気でも目新しさでもない——あなたの問いの性質だ。いま欲しいのは「事実の在りか」か、それとも「考える助け」か。",
+      },
+      { t: "h", text: "検索に向く問い、AIに向く問い" },
+      {
+        t: "list",
+        items: [
+          "検索・公式が向く — いまの人口、最新の制度や料金、公式の手続き、出典が要る事実。“最新性・正確な固有値・裏づけ”が命のもの。",
+          "AIが向く — 文章の推敲、長い資料の論点整理、企画の弱点さがし、難しい概念を噛み砕く、考えの壁打ち。“推論・整理・視点”が要るもの。",
+        ],
+      },
+      {
+        t: "p",
+        text:
+          "厄介なのは、その中間だ。「最新の制度を、私の場合に当てはめて説明して」——最新の事実（検索向き）と、当てはめる推論（AI向き）が、ひとつの問いに混ざっている。こういう時は、欲張らずに分ける。事実は事実で取り、考えは考えで頼む。",
+      },
+      {
+        t: "compare",
+        bad: "（AIに）いまの〇〇制度の金額と申請期限を教えて。",
+        good:
+          "（まず公式・検索で要綱を確認し、それをAIに渡して）この制度の要綱（貼付）をもとに、私の状況に必要な準備と申請の段取りを整理して。",
+        note: "最新の固有事実は、検索・公式で取る。その確かな事実をAIに“渡してから”、考えさせる。道具を、問いの性質で使い分ける。",
+      },
+      { t: "h", text: "「どちらを使うか」も、一つの問い" },
+      {
+        t: "p",
+        text:
+          "ここが、この講のいちばん大事なところだ。「これは検索すべきか、相談すべきか」——この問いを、投げる前に自分で立てられること。それが、初心者と熟達者を分ける。迷ったら、こう自問する：私がいま欲しいのは、「事実の在りか」か、「考える助け」か。道具を選ぶことも、立派に“問いを立てる”ことなのだ。",
+      },
+      {
+        t: "callout",
+        tone: "tip",
+        title: "対立ではなく、往復",
+        text:
+          "検索とAIは、どちらが上という話ではない。いちばん効くのは、行き来だ。AIに論点の地図を描かせ、出てきた固有の事実は検索で裏を取る。あるいは検索で材料を集め、AIに整理させる。ただし——最新・固有の事実をAIに丸投げしないこと。「知識の地平線」で見たとおり、AIには知らない“今”がある。重要な数字・日付・制度は、必ず一次情報で確かめる。",
+      },
+      { t: "try", label: "検索向き・AI向きの仕分けを道場で試す", preset: "search-vs-ask" },
+      {
+        t: "p",
+        text:
+          "問いを投げる前に、一拍おく。「これは、検索か。相談か」。たったそれだけで、無駄足も、もっともらしい嘘も、ぐっと減る。どの道具に向けるかを選ぶこと——それもまた、あなたが問いを立てる力の一部だ。",
+      },
+    ],
+  },
+
+  {
     slug: "six-patterns",
     track: "実践",
-    num: 5,
+    num: 6,
     title: "型を使う：6つの基本パターン",
     subtitle: "再現性は型から生まれる",
     minutes: 12,
@@ -301,7 +370,7 @@ export const lessons: Lesson[] = [
   {
     slug: "writing-and-editing",
     track: "実践",
-    num: 6,
+    num: 7,
     title: "文章を書く・直す",
     subtitle: "AIは下書きと鏡になる",
     minutes: 10,
@@ -350,7 +419,7 @@ export const lessons: Lesson[] = [
   {
     slug: "reasoning-and-data",
     track: "実践",
-    num: 7,
+    num: 8,
     title: "データと論理で考える",
     subtitle: "計算より、考え方の検算",
     minutes: 11,
@@ -400,7 +469,7 @@ export const lessons: Lesson[] = [
   {
     slug: "hallucination",
     track: "実践",
-    num: 8,
+    num: 9,
     title: "事実を確かめる：幻覚との付き合い方",
     subtitle: "賢く疑い、賢く使う",
     minutes: 9,
@@ -448,7 +517,7 @@ export const lessons: Lesson[] = [
   {
     slug: "question-the-question",
     track: "実践",
-    num: 9,
+    num: 10,
     title: "問いを、疑う",
     subtitle: "手段を聞く前に、目的に立ち返る",
     minutes: 9,
@@ -519,7 +588,7 @@ export const lessons: Lesson[] = [
   {
     slug: "knowledge-cutoff",
     track: "実践",
-    num: 10,
+    num: 11,
     title: "知識の地平線",
     subtitle: "AIには、知らない『今』がある",
     minutes: 9,
@@ -580,7 +649,7 @@ export const lessons: Lesson[] = [
   {
     slug: "ground-before-asking",
     track: "実践",
-    num: 11,
+    num: 12,
     title: "渡してから、問う",
     subtitle: "AIを“神託”にしない、下ごしらえの一手",
     minutes: 10,
@@ -641,7 +710,7 @@ export const lessons: Lesson[] = [
   {
     slug: "purposeful-summary",
     track: "実践",
-    num: 12,
+    num: 13,
     title: "要約の前に、目的を",
     subtitle: "捨ててよいものは、目的が決める",
     minutes: 10,
@@ -723,7 +792,7 @@ export const lessons: Lesson[] = [
   {
     slug: "multimodal",
     track: "実践",
-    num: 13,
+    num: 14,
     title: "見せて、問う",
     subtitle: "AIは、読むだけでなく見る",
     minutes: 9,
@@ -797,7 +866,7 @@ export const lessons: Lesson[] = [
   {
     slug: "context-fold",
     track: "実践",
-    num: 14,
+    num: 15,
     title: "会話を、たたみ直す",
     subtitle: "長い対話を、自分で仕切り直す",
     minutes: 9,
@@ -859,7 +928,7 @@ export const lessons: Lesson[] = [
   {
     slug: "thinking-partner",
     track: "探究",
-    num: 15,
+    num: 16,
     title: "思考のパートナーにする",
     subtitle: "答えをもらうのをやめる",
     minutes: 11,
@@ -908,7 +977,7 @@ export const lessons: Lesson[] = [
   {
     slug: "learn-anything",
     track: "探究",
-    num: 16,
+    num: 17,
     title: "AIと学ぶ：自分専用の家庭教師",
     subtitle: "教育の独占が、終わる",
     minutes: 10,
@@ -958,7 +1027,7 @@ export const lessons: Lesson[] = [
   {
     slug: "sycophancy",
     track: "探究",
-    num: 17,
+    num: 18,
     title: "AIは、なぜあなたに賛成するのか",
     subtitle: "迎合（へつらい）を見抜く",
     minutes: 10,
@@ -1039,7 +1108,7 @@ export const lessons: Lesson[] = [
   {
     slug: "what-not-to-delegate",
     track: "探究",
-    num: 18,
+    num: 19,
     title: "AIに渡さないもの",
     subtitle: "熟達は、手放さないもので決まる",
     minutes: 11,
@@ -1111,7 +1180,7 @@ export const lessons: Lesson[] = [
   {
     slug: "whose-normal",
     track: "探究",
-    num: 19,
+    num: 20,
     title: "AIの「普通」は、誰の普通か",
     subtitle: "既定の前提を、問い直す",
     minutes: 10,
@@ -1179,7 +1248,7 @@ export const lessons: Lesson[] = [
   {
     slug: "fluency-is-not-truth",
     track: "探究",
-    num: 20,
+    num: 21,
     title: "流暢さは、正しさではない",
     subtitle: "達者な語り口に、根拠を求める",
     minutes: 9,
