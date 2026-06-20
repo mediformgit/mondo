@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mjs",
     "check": "tsx scripts/check-site.ts",
     "check:external": "tsx scripts/check-site.ts --external",
     "check:security": "node scripts/check-security.mjs",
