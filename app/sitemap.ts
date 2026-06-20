@@ -4,7 +4,7 @@ import { lessons } from "@/lib/lessons";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
-  const staticRoutes = ["", "/learn", "/patterns", "/playground", "/about"].map((p) => ({
+  const staticRoutes = ["", "/learn", "/patterns", "/playground", "/about", "/made"].map((p) => ({
     url: `${base}${p}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
