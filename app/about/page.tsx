@@ -111,6 +111,15 @@ export default function AboutPage() {
           </Link>
         </div>
       </Reveal>
+
+      <Reveal delay={0.1}>
+        <p className="mt-10 text-sm text-paper-mute">
+          このサイト自身が、どう作られたか——指示文も中身も開いています。
+          <Link href="/made" className="ulink ml-1 text-paper-dim hover:text-paper">
+            つくられ方を読む →
+          </Link>
+        </p>
+      </Reveal>
     </div>
   );
 }

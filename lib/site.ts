@@ -7,6 +7,8 @@ export const site = {
     "生成AIを“使われる側”で終わらせない。Claudeを題材に、文系も理系も、初心者から本質まで。問いを立てる力を鍛える、無料の生成AI教育。",
   // Vercel: NEXT_PUBLIC_SITE_URL overrides this per-environment. Default = production domain.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mondo-ai-education.com",
+  // Open source: code under MIT, content under CC BY-SA 4.0. 知は独占されない。
+  repo: "https://github.com/mediformgit/mondo",
 };
 
 export type NavLink = { href: string; label: string; sub: string };
