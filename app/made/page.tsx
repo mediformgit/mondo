@@ -16,12 +16,18 @@ const goalPrompt = [
   "playgroundがブラウザ上にもあるといいな。vercelで公開予定。",
 ];
 
+// この作り方そのものに先例がある。末尾の謝辞からリンクする（敬意と出所の明示）。
+const inspirations = {
+  fladdict: "https://x.com/fladdict/status/2064904019823448481",
+  kmizu: "https://zenn.dev/nextbeat/articles/2026-06-cs-edu-site-fable5",
+};
+
 export default function MadePage() {
   return (
     <div className="wrap max-w-3xl pt-28 pb-10 md:pt-36">
       <Reveal>
         <div className="kicker mb-4">つくられ方 · Colophon</div>
-        <h1 className="font-display text-4xl font-semibold leading-[1.1] text-paper md:text-6xl">
+        <h1 className="font-display text-4xl font-semibold leading-[1.1] text-paper md:text-5xl">
           このサイトもまた、
           <br />
           一つの問いから生まれた。
@@ -110,6 +116,18 @@ export default function MadePage() {
           </p>
         </Reveal>
       </div>
+
+      <Reveal delay={0.05}>
+        <div className="mt-14 border-t border-line pt-8">
+          <h2 className="font-display text-lg font-semibold text-paper">
+            先に道を示してくれた人へ
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-paper-mute text-pretty">
+            「一つの <span className="font-mono text-shu">/goal</span> から、生成AIに教育サイトを丸ごと作らせる」——この作り方は、私の発明ではない。
+            <a href={inspirations.fladdict} target="_blank" rel="noopener noreferrer" className="ulink text-paper-dim hover:text-paper">深津貴之</a>氏、<a href={inspirations.kmizu} target="_blank" rel="noopener noreferrer" className="ulink text-paper-dim hover:text-paper">kmizu</a>氏に強く触発されている。問道は、その方法を生成AIリテラシーという別の領域へ受け継いだものだ。先達に、敬意と感謝を。
+          </p>
+        </div>
+      </Reveal>
 
       <Reveal delay={0.1}>
         <div className="mt-12 flex flex-wrap gap-4">
