@@ -180,7 +180,8 @@
 - 採点メモ（陳腐テスト8基準）: 既出性△（"幻覚に注意"は多い）→芯を"出典捏造＋たどる習慣"に絞り差別化 / 非自明○ / 独自フレーム○ / 転移性◎（検証の習慣）/ 鮮度○ / 文理◎ / 声○ / 非自己反復△→講9と隣接。**差別化：講9＝事実全般の捏造と確かめ方、本講＝出典/引用という特定の致命傷＋"必ず開く"作法。最近接＝講9 hallucination／型 verify。**
 - 出典（§4）: [Why lawyers keep citing fake cases invented by AI (Scientific American)](https://www.scientificamerican.com/article/why-lawyers-keep-citing-fake-cases-invented-by-ai/) ／ [AI Hallucination Cases Database (Damien Charlotin)](https://www.damiencharlotin.com/hallucinations/) ／ [California attorney fined $10k for fake AI citations (The Daily Record)](https://thedailyrecord.com/2025/10/13/california-lawyer-ai-fake-citations-fine/)
 
-### [提案中] 答えの「ブレ」を、道具にする（非決定性）
+### [起草済] 答えの「ブレ」を、道具にする（非決定性）
+- 起草: 講義18 `ask-twice`「同じ問いに、違う答え」＋道場プリセット `ask-twice`（実践末尾 num18・探究18〜24を19〜25へ繰り上げ。ブランチ `lesson/ask-twice`）。§0: 温度0でも非決定（サンプリング・浮動小数点・バッチ/MoE）をWeb確認。温度設定には触れず（サイトはtemperature非送信・ツール非依存）、固有の変動率・モデル名は焼き込まず現象として記述。差別化：講21 sycophancy（立場を変えて二度問う＝迎合検出）・講24 fluency（確信度を尋ねる）に対し、本講＝同じ意図のまま繰り返し“散らばり”を観測。歯止め「同じでも正しいとは限らない（安定≠真実）」。
 - 角度（一行の主張）: 同じ問いでも、AIの答えは毎回少し違う。これは故障ではなく仕組み。だから一度の答えを真に受けず、"二度問うてブレを見る"——ブレの大きさは、その問いの曖昧さとAIの自信のなさを映す。
 - トラック / レベル: 実践 /（中級）
 - なぜ新規・非自明か: 人は「コンピュータ＝同じ入力に同じ出力」と思い込むが、LLMは温度0でも完全には再現しない（サンプリング・浮動小数点の非結合性・バッチ/MoE）。世の教材は"良い一回"を狙うが、本講は前提を変える：同じ問いを2〜3回／表現を変えて投げ、**答えの揺れを"あいまい・不確実の信号"として使う**。安定して同じ＝確からしい、ばらつく＝問いを締め直すか裏取りが要る。確信度を引き出す（fluency講）とは別軸＝こちらは"出力の分散そのものを観測"する実証的な構え。
