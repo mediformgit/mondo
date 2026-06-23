@@ -1661,7 +1661,7 @@ export const lessons: Lesson[] = [
           "「この回答で、一番怪しい一文はどこ？」— 自己点検させる",
         ],
       },
-      { t: "try", label: "確信度を問う問い方を道場で試す", preset: "verify" },
+      { t: "try", label: "流暢な答えを、点検する", preset: "fluency-check" },
       {
         t: "callout",
         tone: "warn",
