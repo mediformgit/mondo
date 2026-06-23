@@ -322,9 +322,75 @@ export const lessons: Lesson[] = [
   },
 
   {
+    slug: "rough-start",
+    track: "入門",
+    num: 6,
+    title: "白紙を、AIで越える",
+    subtitle: "下手でいいから、始める",
+    minutes: 7,
+    summary:
+      "いちばん難しいのは、書き始め。AIの本当の値打ちは、完璧な答えより、“反応できる雑なたたき台”をくれることだ。ゼロから生み出すより、目の前の不完全を直すほうが、人はずっとうまくやれる。良い問いが無くても、始めていい。",
+    goals: [
+      "「始められない」を、AIで越える方法を持つ",
+      "完璧な問いを準備せず、雑なたたき台から始められる",
+      "出てきた草案に反応しながら、自分の問いを育てられる",
+    ],
+    body: [
+      {
+        t: "p",
+        text:
+          "白紙の書類。何も書かれていないチャット欄。メールを書こう、計画を立てよう、レポートを始めよう——そう思うのに、最初の一文字が出てこない。能力が無いからではない。ゼロから何かを生み出すのが、いちばん難しいからだ。多くの人は、ここで止まる。",
+      },
+      {
+        t: "callout",
+        tone: "insight",
+        title: "反応するのは、生み出すより、ずっと易しい",
+        text:
+          "人は、何もない所から創るのは苦手でも、目の前にあるものを直す・選ぶ・けなすのは得意だ。「ここが違う」「こっちのほうがいい」は、すっと出てくる。だから、初心者にとってのAIの本当の値打ちは、立派な完成品ではない——“反応できる、雑なたたき台”をくれることだ。AIは「無から創る」を「目の前のものを直す」に変えてくれる。",
+      },
+      { t: "h", text: "完璧な問いは、まだ要らない" },
+      {
+        t: "p",
+        text:
+          "「良い問いの解剖学」で、問いには部品があると学んだ。それは本当だ。でも、それに気後れして固まっては、本末転倒。始めるためなら、下手な一言で十分だ。「うまく言えないけど、〜について、とりあえず雑にたたき台を3つ」。狙いは、良い答えではない。“反応できる材料”を手に入れることだ。良い問いは、書き出す前ではなく、反応しながら見えてくる。",
+      },
+      { t: "h", text: "出てきたものを、足場にする" },
+      {
+        t: "p",
+        text:
+          "たたき台が手に入れば、もう白紙ではない。あなたは「創る人」から「直す人」になる——ずっと楽な立場だ。「①は違う、②の方向で、もっとこう」。そうやって反応するうちに、自分が本当に欲しかったものの輪郭が、はっきりしてくる。何を“違う”と感じたかが、次の手がかりになる。ここから先は、「対話としてのAI」で学んだ往復が引き継ぐ。本講は、その往復を“始める”ための一歩だ。",
+      },
+      {
+        t: "compare",
+        bad: "（完璧な指示文を作ろうとして、いつまでも送れない。あるいは、白紙のまま固まる）",
+        good:
+          "正直、何から手をつければいいか分かりません。テーマは〜です。下手で構わないので、方向性の違うたたき台を3つください。私はそれに反応しながら、絞っていきます。",
+        note: "最初の一手は、正解でなくていい。“消す・直す対象”さえ手に入れば、もう白紙ではない。",
+      },
+      {
+        t: "p",
+        text:
+          "これは、書くことだけの話ではない。旅行の計画、勉強の進め方、表の作り方、プログラムの骨組み——「何から始めれば」で固まるすべての場面で効く。とりあえず雑な第一案を出させ、それに反応する。始めの一歩のコストを、AIはほぼゼロにしてくれる。",
+      },
+      {
+        t: "callout",
+        tone: "tip",
+        title: "迷ったら、この一言",
+        text:
+          "『下手でいいので、たたき台をいくつか』。完璧を準備しようとして手が止まったら、この一言で始める。出てきたものに「ここが違う」と反応する——それだけで、白紙は越えられる。",
+      },
+      { t: "try", label: "雑なたたき台から始める", preset: "rough-start" },
+      {
+        t: "p",
+        text:
+          "完璧主義は、人を白紙の前で固まらせる。だが、下手に始めることも、一つの技術だ。そしてAIは、その“下手な第一歩”の費用を、ほとんどゼロにしてくれる。最初の問いは、良くなくていい。ただ、最初であればいい。一歩目さえ踏めれば、あとは反応しながら、いくらでも遠くへ行ける。",
+      },
+    ],
+  },
+  {
     slug: "six-patterns",
     track: "実践",
-    num: 6,
+    num: 7,
     title: "型を使う：6つの基本パターン",
     subtitle: "再現性は型から生まれる",
     minutes: 12,
@@ -370,7 +436,7 @@ export const lessons: Lesson[] = [
   {
     slug: "writing-and-editing",
     track: "実践",
-    num: 7,
+    num: 8,
     title: "文章を書く・直す",
     subtitle: "AIは下書きと鏡になる",
     minutes: 10,
@@ -419,7 +485,7 @@ export const lessons: Lesson[] = [
   {
     slug: "reasoning-and-data",
     track: "実践",
-    num: 8,
+    num: 9,
     title: "データと論理で考える",
     subtitle: "計算より、考え方の検算",
     minutes: 11,
@@ -469,7 +535,7 @@ export const lessons: Lesson[] = [
   {
     slug: "hallucination",
     track: "実践",
-    num: 9,
+    num: 10,
     title: "事実を確かめる：幻覚との付き合い方",
     subtitle: "賢く疑い、賢く使う",
     minutes: 9,
@@ -517,7 +583,7 @@ export const lessons: Lesson[] = [
   {
     slug: "question-the-question",
     track: "実践",
-    num: 10,
+    num: 11,
     title: "問いを、疑う",
     subtitle: "手段を聞く前に、目的に立ち返る",
     minutes: 9,
@@ -588,7 +654,7 @@ export const lessons: Lesson[] = [
   {
     slug: "knowledge-cutoff",
     track: "実践",
-    num: 11,
+    num: 12,
     title: "知識の地平線",
     subtitle: "AIには、知らない『今』がある",
     minutes: 9,
@@ -649,7 +715,7 @@ export const lessons: Lesson[] = [
   {
     slug: "ground-before-asking",
     track: "実践",
-    num: 12,
+    num: 13,
     title: "渡してから、問う",
     subtitle: "AIを“神託”にしない、下ごしらえの一手",
     minutes: 10,
@@ -710,7 +776,7 @@ export const lessons: Lesson[] = [
   {
     slug: "purposeful-summary",
     track: "実践",
-    num: 13,
+    num: 14,
     title: "要約の前に、目的を",
     subtitle: "捨ててよいものは、目的が決める",
     minutes: 10,
@@ -792,7 +858,7 @@ export const lessons: Lesson[] = [
   {
     slug: "multimodal",
     track: "実践",
-    num: 14,
+    num: 15,
     title: "見せて、問う",
     subtitle: "AIは、読むだけでなく見る",
     minutes: 9,
@@ -866,7 +932,7 @@ export const lessons: Lesson[] = [
   {
     slug: "context-fold",
     track: "実践",
-    num: 15,
+    num: 16,
     title: "会話を、たたみ直す",
     subtitle: "長い対話を、自分で仕切り直す",
     minutes: 9,
@@ -928,7 +994,7 @@ export const lessons: Lesson[] = [
   {
     slug: "escape-the-average",
     track: "実践",
-    num: 16,
+    num: 17,
     title: "AIの「平均」から、抜け出す",
     subtitle: "紋切り型から、自分の言葉へ",
     minutes: 10,
@@ -1005,7 +1071,7 @@ export const lessons: Lesson[] = [
   {
     slug: "trace-sources",
     track: "実践",
-    num: 17,
+    num: 18,
     title: "捏造された「出典」を、たどる",
     subtitle: "もっともらしい引用ほど、開く",
     minutes: 9,
@@ -1072,7 +1138,7 @@ export const lessons: Lesson[] = [
   {
     slug: "ask-twice",
     track: "実践",
-    num: 18,
+    num: 19,
     title: "同じ問いに、違う答え",
     subtitle: "ブレを、不確実のものさしにする",
     minutes: 9,
@@ -1152,7 +1218,7 @@ export const lessons: Lesson[] = [
   {
     slug: "diverge-converge",
     track: "実践",
-    num: 19,
+    num: 20,
     title: "広げる問い、絞る問い",
     subtitle: "発散と収束を、混ぜない",
     minutes: 9,
@@ -1224,7 +1290,7 @@ export const lessons: Lesson[] = [
   {
     slug: "thinking-partner",
     track: "探究",
-    num: 20,
+    num: 21,
     title: "思考のパートナーにする",
     subtitle: "答えをもらうのをやめる",
     minutes: 11,
@@ -1273,7 +1339,7 @@ export const lessons: Lesson[] = [
   {
     slug: "learn-anything",
     track: "探究",
-    num: 21,
+    num: 22,
     title: "AIと学ぶ：自分専用の家庭教師",
     subtitle: "教育の独占が、終わる",
     minutes: 10,
@@ -1323,7 +1389,7 @@ export const lessons: Lesson[] = [
   {
     slug: "sycophancy",
     track: "探究",
-    num: 22,
+    num: 23,
     title: "AIは、なぜあなたに賛成するのか",
     subtitle: "迎合（へつらい）を見抜く",
     minutes: 10,
@@ -1404,7 +1470,7 @@ export const lessons: Lesson[] = [
   {
     slug: "what-not-to-delegate",
     track: "探究",
-    num: 23,
+    num: 24,
     title: "AIに渡さないもの",
     subtitle: "熟達は、手放さないもので決まる",
     minutes: 11,
@@ -1476,7 +1542,7 @@ export const lessons: Lesson[] = [
   {
     slug: "whose-normal",
     track: "探究",
-    num: 24,
+    num: 25,
     title: "AIの「普通」は、誰の普通か",
     subtitle: "既定の前提を、問い直す",
     minutes: 10,
@@ -1544,7 +1610,7 @@ export const lessons: Lesson[] = [
   {
     slug: "fluency-is-not-truth",
     track: "探究",
-    num: 25,
+    num: 26,
     title: "流暢さは、正しさではない",
     subtitle: "達者な語り口に、根拠を求める",
     minutes: 9,
@@ -1613,7 +1679,7 @@ export const lessons: Lesson[] = [
   {
     slug: "hidden-instructions",
     track: "探究",
-    num: 26,
+    num: 27,
     title: "AIは、読んだものに従う",
     subtitle: "資料に紛れこむ、命令",
     minutes: 10,
