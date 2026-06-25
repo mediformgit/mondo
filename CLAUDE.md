@@ -51,7 +51,7 @@
 - **質の伴わないものは出さない。** タスク完遂のために凡庸なものを通すより、「保留・不採用」を選ぶ（[QUALITY-RUBRIC.md](./docs/QUALITY-RUBRIC.md) §1）。
 - 新規ファイルや大きな変更は、PRINCIPLES.md §IV のチェックリストを満たすことを確認する。
 - 詳しい運用は [docs/RUNBOOK.md](./docs/RUNBOOK.md)、貢献の作法は [CONTRIBUTING.md](./CONTRIBUTING.md)。
-- **コンテンツ制作スキル**（[.claude/skills/](./.claude/skills/)）：講義のネタ出し `/propose-themes`（→ [docs/THEME-BACKLOG.md](./docs/THEME-BACKLOG.md)）／講義本文 `/create-lesson`／型 `/create-pattern`／道場プリセット `/create-preset`／既存講義の鑑定・改善 `/improve-lesson`。**すべて [docs/QUALITY-RUBRIC.md](./docs/QUALITY-RUBRIC.md)（§0〜§5の核＋§6型・§7プリセット・§8改善の追補）に従う。** 検証不能な事実は出さず保留。改善は欠陥を直すが**均一化しない**。
+- **コンテンツ制作スキル**（[.claude/skills/](./.claude/skills/)）：講義のネタ出し `/propose-themes`（Web研究→ [docs/THEME-BACKLOG.md](./docs/THEME-BACKLOG.md)）／エクスポート済み掲示板スレッド（Reddit `.json` 等）からのネタ採掘 `/mine-threads`（→ 同台帳。クロールはせず人手エクスポートを入力。背景は memory `forum-mining-feasibility`）／講義本文 `/create-lesson`／型 `/create-pattern`／道場プリセット `/create-preset`／既存講義の鑑定・改善 `/improve-lesson`。**すべて [docs/QUALITY-RUBRIC.md](./docs/QUALITY-RUBRIC.md)（§0〜§5の核＋§6型・§7プリセット・§8改善の追補）に従う。** 検証不能な事実は出さず保留。改善は欠陥を直すが**均一化しない**。
 - **保守スキル**：依存・脆弱性は `/fix-deps`（Dependabot の検知に対する“対応”の層。`npm audit` 点検 → 安全に更新 → **build と CSP 維持を検証** → PR。`--force` 不可・自動 merge 不可・直せなければ保留）。
 
 > サイトが大きくなるほど、芯は薄れやすい。新しいセッションのたびに、PRINCIPLES.md から始めること。
