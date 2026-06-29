@@ -53,7 +53,8 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
-        <Analytics />
+        {/* Vercel Web Analytics は Vercel 上でのみ機能する。静的書き出し（Cloudflare 等）では描画しない。 */}
+        {process.env.STATIC_EXPORT !== "1" && <Analytics />}
       </body>
     </html>
   );

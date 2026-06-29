@@ -4,7 +4,7 @@
  * config / playground / 任意のコード変更で、鍵が漏れる経路が増えていないかを機械的に検査する。
  * ゼロ依存（ファイルをテキスト走査するだけ）。
  */
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const errors = [];
@@ -35,6 +35,32 @@ for (const h of ["Content-Security-Policy", "X-Content-Type-Options", "X-Frame-O
   if (!cfg.includes(h)) errors.push(`next.config.mjs: セキュリティヘッダ ${h} が無い`);
 }
 if (!/frame-ancestors 'none'/.test(cfg)) errors.push("CSP: frame-ancestors 'none' が無い（クリックジャッキング）");
+
+// ── 1b. 静的ホスト用 public/_headers（存在すれば）も同じ CSP 制約を満たすこと ──
+// Cloudflare Pages / Netlify では CSP の配信元が _headers になるため、ここでも検証する。
+if (existsSync("public/_headers")) {
+  const hdr = readFileSync("public/_headers", "utf8");
+  // コメント中の "connect-src" を拾わないよう、実際の CSP ヘッダ行に限定して抽出する。
+  const cspLine = (hdr.match(/Content-Security-Policy:\s*([^\n]*)/) || [])[1] || "";
+  const m = cspLine.match(/connect-src ([^;]*)/);
+  if (!m) {
+    errors.push("public/_headers: Content-Security-Policy 行に connect-src が無い（静的ホストで鍵保護が効かない）");
+  } else {
+    const tokens = m[1].trim().split(/\s+/).filter(Boolean);
+    const ALLOWED = new Set(["'self'", "https://api.anthropic.com"]);
+    const unexpected = tokens.filter((t) => !ALLOWED.has(t));
+    if (unexpected.length) {
+      errors.push(`public/_headers: connect-src に想定外のトークン: ${unexpected.join(", ")}（鍵漏れ経路）`);
+    }
+    if (!tokens.includes("https://api.anthropic.com")) {
+      errors.push("public/_headers: connect-src に https://api.anthropic.com が無い（道場が動かない）");
+    }
+  }
+  for (const h of ["Content-Security-Policy", "X-Content-Type-Options", "X-Frame-Options", "Referrer-Policy"]) {
+    if (!hdr.includes(h)) errors.push(`public/_headers: セキュリティヘッダ ${h} が無い`);
+  }
+  if (!/frame-ancestors 'none'/.test(hdr)) errors.push("public/_headers: frame-ancestors 'none' が無い");
+}
 
 // ── ソースを集める ─────────────────────────────────────────
 const files = [];

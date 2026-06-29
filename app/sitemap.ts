@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { lessons } from "@/lib/lessons";
 
+// 静的書き出し（output: export / Cloudflare）でも生成できるよう固定化。Vercel 経路でも無害（元から静的）。
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url.replace(/\/$/, "");
   const staticRoutes = ["", "/learn", "/patterns", "/playground", "/about", "/made"].map((p) => ({
