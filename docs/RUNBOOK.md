@@ -157,6 +157,43 @@ PR・週次・リリースで自動的に守られます。手元でも同じコ
 
 ---
 
+# D. 別の無料ホストへ移す / 公開を止める
+
+このサイトは**完全な静的サイト**（サーバAPIなし・道場はブラウザから Anthropic 直結）なので、
+どの無料静的ホストでも動く。移設で気をつけるのは **CSP（鍵保護の生命線）の配信方法**だけ。
+
+## D-1. いまの公開を止める（Vercel・画面操作のみ）
+> コード変更は不要。GitHub のコードは消えない＝いつでも再公開できる。
+- [ ] **新規デプロイだけ止める**（URLは残す）：Vercel → プロジェクト → **Settings → Git → Disconnect**。
+- [ ] **公開そのものを止める**（URLも閉じる）：**Settings → 最下部 → Delete Project**。
+  - リポジトリは無傷。再開は [vercel.com/new](https://vercel.com/new) から Import し直すだけ。
+
+## D-2. Cloudflare Pages へ移す（推奨・無料）
+> CSP を [public/_headers](../public/_headers) がそのまま配るので、鍵保護（綱領III）を完全に維持できる。
+- [ ] [Cloudflare Pages](https://pages.cloudflare.com/) で **GitHub リポジトリを接続**。
+- [ ] ビルド設定：
+  - **Build command**: `STATIC_EXPORT=1 npm run build`
+  - **Build output directory**: `out`
+  - **Environment variables**: `STATIC_EXPORT` = `1`（＋任意で `NEXT_PUBLIC_SITE_URL` = `https://<新URL>`）
+- [ ] デプロイ後、`https://<プロジェクト>.pages.dev` が公開される。
+- [ ] **最重要の確認**：`curl -sI https://<新URL>/` で `content-security-policy` に
+      `connect-src 'self' https://api.anthropic.com` **だけ**が出ること（BYOK の生命線）。
+- [ ] 道場のデモ送信／`/sitemap.xml`／`/robots.txt`／タブの問アイコン（A-6 と同じ）を確認。
+
+> 仕組み：`STATIC_EXPORT=1` のとき [next.config.mjs](../next.config.mjs) が `output: "export"` に切替わり `out/` に静的書き出し。
+> CSP ヘッダは public/_headers が配る（Vercel 経路の `headers()` と同期。`npm run check:security` が**両方**を検査）。
+> Vercel 用の既定ビルド `npm run build` は従来どおり動くので、どちらの経路も壊れない。
+
+## D-3. 移設に伴う注意
+- **アクセス解析は止まる**：現在の計測は Vercel Web Analytics（`<Analytics />`）。静的書き出しでは自動で無効化される。
+  Cloudflare で続けるなら **Cloudflare Web Analytics（無料・クッキーレス）** を有効化する。ただし計測ビーコンのため
+  CSP を最小限ゆるめる必要があり、綱領III に関わる変更なので**別PRで慎重に**。
+- **新ドメイン**：完全無料の独自ドメインは実質難しい（無料サブドメイン `*.pages.dev` で十分）。
+  独自ドメインを使うなら年額で取得し、Cloudflare 側で割当て＋`NEXT_PUBLIC_SITE_URL` を更新。
+- **GitHub Pages は非推奨**：HTTP ヘッダを設定できず CSP が `<meta>` 止まりになり、鍵保護が弱まる（綱領III）。
+
+---
+
 ## 困ったとき
 - ビルドが失敗：PRの GitHub Actions ログ、または Vercel の Deploy ログを確認。
 - 解析にデータが出ない：Analytics を Enable したか、ブラウザのコンソールにエラーが出ていないか。

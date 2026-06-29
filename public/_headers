@@ -1,0 +1,13 @@
+# 静的ホスト（Cloudflare Pages / Netlify）が読む HTTP レスポンスヘッダ。
+# next build（STATIC_EXPORT=1）で out/_headers としてそのまま配置される。
+#
+# ⚠ next.config.mjs の securityHeaders / csp と必ず一致させること。
+#   接続先を 'self' と https://api.anthropic.com に限るのは、BYOK の鍵が
+#   Anthropic 以外へ漏れないための綱領IIIの生命線。
+#   両経路（next.config と この _headers）の整合は `npm run check:security` が検査する。
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.anthropic.com; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

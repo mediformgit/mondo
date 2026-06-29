@@ -30,10 +30,18 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
 ];
 
-const nextConfig = {
-  async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
-  },
-};
+// 配信経路は2つ。どちらでも CSP（connect-src = self + Anthropic）を必ず守る：
+//  - Vercel / Node サーバ（既定）: 下の headers() が HTTP レスポンスヘッダとして配る。
+//  - 静的ホスト（Cloudflare Pages / Netlify）: STATIC_EXPORT=1 で `output: "export"` に切替。
+//    その場合ヘッダは public/_headers が配る（securityHeaders と同期。check:security が両方を検査）。
+const staticExport = process.env.STATIC_EXPORT === "1";
+
+const nextConfig = staticExport
+  ? { output: "export" }
+  : {
+      async headers() {
+        return [{ source: "/:path*", headers: securityHeaders }];
+      },
+    };
 
 export default nextConfig;
