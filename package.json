@@ -28,7 +28,7 @@
     "postcss": "^8.5.10",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.19.2",
-    "typescript": "^5"
+    "typescript": "^6"
   },
   "//overrides": "脆弱性パッチ（メジャー更新を避ける）。glob: CVE-2025-64756（CLIのみ・dev限定）→ eslint-plugin-next 下のみ ^10.5.0 に限定（rimraf@3 の glob@7 は据え置き＝脆弱性範囲外）。postcss: CVE-2026-41305 → next 同梱の 8.4.31 を ^8.5.10 へ（他の消費者は既に 8.5.x のため major 跳ね無し）。",
   "overrides": {
